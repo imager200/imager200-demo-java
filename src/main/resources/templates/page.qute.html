@@ -29,8 +29,8 @@
         }
 
         .header {
-            margin: 40px auto;
-            width: 400px;
+            display: flex;
+            margin-bottom: 80px;
         }
 
         .image-form {
@@ -91,13 +91,25 @@
       .upload-button:active {
         background-position: -50% 0; 
       }
+
+      .header a:link {
+        color: #be9100;
+      }
     </style>
   <link rel="stylesheet" href="./magnific-popup.css"></link>
 </head>
 <body>
 
 <div class="header">
-  <h2><a href="https://www.imager200.io">imager200</a> playground</h2>
+  <div>
+    <img style="max-width: 150px" src="./transparent.png" /> 
+    <p><a href="https://www.imager200.io" target="_blank">www.imager200.io</a></p>
+  </div>
+<div style="width: 400px;margin: auto;">
+  <h2>API playground</h2>
+  <p> Source code: <a href="https://github.com/imager200/imager200-demo-java" target="_blank">https://github.com/imager200/imager200-demo-java</a></p>
+</div>
+
 </div>
 
 {#if values.error}
