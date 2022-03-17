@@ -1,0 +1,24 @@
+
+
+
+    .upload-button {
+      background-image: linear-gradient(to right, #f05a28, #ec008c, #f05a28);
+      background-size: 300% 100%;
+      transition: all 0.5s ease-in-out;
+      text-transform: uppercase;
+      display: inline-block;
+      font-size: 1rem;
+      opacity: 1;
+      padding: 16px 32px;
+      font-weight: 700;
+      line-height: 1.1;
+      white-space: nowrap;
+      border-radius: 3px;
+      color: #fff;
+      text-align: center;
+      text-decoration: none;
+      letter-spacing: 2px; }
+
+      .upload-button:active {
+        background-position: -50% 0; }
+

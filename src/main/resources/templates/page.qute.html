@@ -1,0 +1,171 @@
+<!DOCTYPE html>
+<html>
+<link>
+    <meta charset="UTF-8">
+    <title>Grayscale</title>
+    <style>
+        body {
+            background-color: #000;
+            color: #fff;
+        }
+        h1 {
+            color: #4695EB;
+            font-size: 6vw;
+        }
+
+        h1 b {
+            color: #be9100;
+        }
+
+        p {
+            font-size: 7px;
+        }
+
+        .alert {
+          width: 100%;
+          color: black;
+          background-color: red;
+          margin: auto;
+        }
+
+        .header {
+            margin: 40px auto;
+            width: 400px;
+        }
+
+        .image-form {
+              width: 600px;
+            margin: auto;
+        }
+
+        form {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .form-item {
+          margin-bottom: 15px;
+          display: flex;
+          flex-direction: row;
+        }
+
+        .form-item label {
+          width: 100px;
+          margin-right: 80px;
+        }
+
+        #gallery {
+          display: flex;
+          flex-direction: row;
+          flex-wrap: wrap;
+        }
+
+        #gallery img {
+         max-width: 150px;
+        }
+
+        .hidden {
+          visibility: hidden;
+        }
+
+         /* source: https://codepen.io/ahenriksen/pen/OJNBZvR */
+        .upload-button {
+          background-image: linear-gradient(to right, #0f6642, #53b55f, #49435a);
+          background-size: 300% 100%;
+          transition: all 0.2s ease-in-out;
+          text-transform: uppercase;
+          display: inline-block;
+          font-size: 1rem;
+          opacity: 1;
+          padding: 16px 32px;
+          font-weight: 700;
+          line-height: 1.1;
+          white-space: nowrap;
+          border-radius: 3px;
+          color: #fff;
+          text-align: center;
+          text-decoration: none;
+          letter-spacing: 2px; 
+       }
+      
+      .upload-button:active {
+        background-position: -50% 0; 
+      }
+    </style>
+  <link rel="stylesheet" href="./magnific-popup.css"></link>
+</head>
+<body>
+
+<div class="header">
+  <h2><a href="https://www.imager200.io">imager200</a> playground</h2>
+</div>
+
+{#if values.error}
+<div class="alert">
+  {values.errorMessage}
+</div>
+{/if}
+
+<div class="image-form">
+<form method="post" id="upload-form" enctype="multipart/form-data">
+   <div class="form-item">
+     <label for="img"> Upload Image: </label>
+     <input id="img" type="file" name="image" accept="image/png, image/jpeg, image/gif" required/>
+   </div>
+  <div class="form-item">
+    <label for="op"> choose operation: </label>
+    <select name="operation" id="op">
+      <option value="grayscale">Grayscale</option>
+      <option value="equalize">Equalize</option>
+      <option value="blur">Blur</option>
+    </select>
+  </div>
+
+    <button type="submit" class="upload-button" id="upload"> Go for it! </button>
+    <div id="processing" class="hidden">
+      <label> processing... </label>
+      <progress  style="width: 100%" max="100"></progress>
+    </div>
+</form>
+
+
+</div>
+
+<div class="album">
+  <h3> Gallery</h3>
+  <p>click on any image to display gallery</p>
+  <div id="gallery">
+    {#for url in values.imageUrls}
+    <a href="{url}">
+      <img src="{url}" />
+    </a>
+    {/for}
+  </div>
+</div>
+
+<script src="//ajax.googleapis.com/ajax/libs/jquery/1.9.1/jquery.min.js"></script>
+<script src="./jquery.magnific-popup.min.js"></script>
+
+<script>
+  $('#gallery').magnificPopup({
+    delegate: 'a', // child items selector, by clicking on it popup will open
+    type: 'image',
+    closeOnContentClick: true,
+    closeBtnInside: false,
+    gallery: { enabled:true },
+    zoom: {
+			enabled: true
+		}
+  });
+
+  let uploadForm = document.getElementById("upload-form")
+
+  uploadForm.addEventListener("submit", e => {
+    let progress = document.getElementById("processing")
+    let uploadButton = document.getElementById("upload")
+    progress.classList.remove("hidden")
+    uploadButton.classList.add("hidden")
+  })
+</script>
+</body>
+</html>
