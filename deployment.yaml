@@ -25,15 +25,17 @@ spec:
       labels:
         app: imager200-demo
     spec:
+      imagePullSecrets:
+      - name: github
       containers:
       - name: myapp
         image: ghcr.io/imager200/imager200-demo-java:latest
+        imagePullPolicy: Always
         ports:
         - containerPort: 8080
         envFrom:
          - secretRef:
             name: demo-api-key
-    imagePullSecrets:
-      - name: github
-    imagePullPolicy: Always
+
+    
 
