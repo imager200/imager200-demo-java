@@ -27,7 +27,7 @@ node {
                        
                         withCredentials([string(credentialsId: 'Github-token', variable: 'GH_TOKEN')]) {
                             sh '''
-                            echo $GH_TOKEN | docker login ghcr.io -u zak905 --password-stdin
+                            echo $GH_TOKEN | docker login ghcr.io -u robot905 --password-stdin
                             docker build -f src/main/docker/Dockerfile.jvm -t ghcr.io/imager200/imager200-demo-java:latest .
                             docker push ghcr.io/imager200/imager200-demo-java:latest
                             '''
