@@ -1,0 +1,39 @@
+
+kind: Service
+apiVersion: v1
+metadata:
+  name: imager200-demo
+spec:
+  selector:
+    app: imager200-demo
+  type: ClusterIP
+  ports:
+  - name: http
+    port: 80
+    targetPort: 8080
+---
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: imager200-demo
+spec:
+  selector:
+    matchLabels:
+      app: imager200-demo
+  template:
+    metadata:
+      labels:
+        app: imager200-demo
+    spec:
+      containers:
+      - name: myapp
+        image: ghcr.io/imager200/imager200-demo-java:latest
+        ports:
+        - containerPort: 8080
+        envFrom:
+         - secretRef:
+            name: demo-api-key
+    imagePullSecrets:
+      - name: github
+    imagePullPolicy: Always
+
