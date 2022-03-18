@@ -19,6 +19,7 @@ API_KEY should contain the imager200 api key. You can get one at the imager200 [
 
 You can run your application in dev mode that enables live coding using:
 ```shell script
+export APY_KEY=your_api_key
 export MAVEN_OPTS="-Djdk.tls.client.protocols=TLSv1.2"
 ./mvnw compile quarkus:dev
 ```

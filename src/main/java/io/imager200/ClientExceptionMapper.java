@@ -16,11 +16,14 @@ public class ClientExceptionMapper implements ExceptionMapper<ResteasyWebApplica
   @Inject
   Template page;
 
+  @Inject
+  ImageList imageList;
+
 
   @Override
   public Response toResponse(ResteasyWebApplicationException exception) {
     String clientResponse = exception.unwrap().getResponse().readEntity(String.class);
-    return Response.status(Status.OK).entity(page.data("values", new PageTemplateValues(List.of(), true, exception.getMessage() + ": " + clientResponse)).render()).type(
+    return Response.status(Status.OK).entity(page.data("values", new PageTemplateValues(imageList.imageUrls, true, exception.getMessage() + ": " + clientResponse)).render()).type(
         MediaType.TEXT_HTML_TYPE).build();
   }
 }

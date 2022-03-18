@@ -37,7 +37,7 @@ node {
 
                 stage('deploy') {
                     configFileProvider([configFile(fileId: env.CONFIG_FILE_ID, variable: 'KUBECONFIG')]) {
-                        sh 'kubectl apply -f deployment.yaml'
+                        sh 'kubectl replace -f deployment.yaml'
                     }
                 }
 
