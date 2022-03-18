@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <html>
-<link>
+<head>
     <meta charset="UTF-8">
+    <meta http-equiv="Content-Security-Policy" content="img-src http://*">
     <title>Grayscale</title>
     <style>
         body {
@@ -149,7 +150,7 @@
   <div id="gallery">
     {#for url in values.imageUrls}
     <a href="{url}">
-      <img src="{url}" />
+      <img src="{url}" referrerpolicy="no-referrer"/>
     </a>
     {/for}
   </div>

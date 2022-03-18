@@ -36,6 +36,3 @@ spec:
         envFrom:
          - secretRef:
             name: demo-api-key
-
-    
-
