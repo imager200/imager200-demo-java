@@ -9,7 +9,7 @@ If you want to learn more about Quarkus, please visit its website: https://quark
 
 # Live version
 
-Live version is up at: [https://playground.imager200.io](https://playground.imager200.io)
+Live version is up at: [http://playground.imager200.io](http://playground.imager200.io)
 
 # Required Environment Variables
 
