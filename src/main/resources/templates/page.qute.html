@@ -2,23 +2,18 @@
 <html>
 <head>
     <meta charset="UTF-8">
-    <title>Grayscale</title>
+    <title>imager200 Demo Website</title>
     <style>
         body {
-            background-color: #000;
-            color: #fff;
+          background-color: #000;
+          color: #fff;
         }
         h1 {
-            color: #4695EB;
-            font-size: 6vw;
+          color: #4695EB;
         }
 
         h1 b {
-            color: #be9100;
-        }
-
-        p {
-            font-size: 10px;
+          color: #be9100;
         }
 
         .alert {
@@ -29,18 +24,18 @@
         }
 
         .header {
-            display: flex;
-            margin-bottom: 80px;
+          display: block;
+          margin-bottom: 80px;
         }
 
         .image-form {
-              width: 600px;
-            margin: auto;
+          width: 600px;
+          margin: auto;
         }
 
         form {
-            display: flex;
-            flex-direction: column;
+          display: flex;
+          flex-direction: column;
         }
 
         .form-item {
@@ -61,7 +56,7 @@
         }
 
         #gallery img {
-         max-width: 150px;
+          max-width: 150px;
         }
 
         .hidden {
@@ -85,28 +80,30 @@
           color: #fff;
           text-align: center;
           text-decoration: none;
-          letter-spacing: 2px; 
-       }
-      
-      .upload-button:active {
-        background-position: -50% 0; 
-      }
+          letter-spacing: 2px;
+        }
 
-      .header a:link {
-        color: #be9100;
-      }
+        .upload-button:active {
+          background-position: -50% 0;
+        }
+
+        .header a:link {
+          color: #be9100;
+        }
     </style>
   <link rel="stylesheet" href="./magnific-popup.css"></link>
 </head>
 <body>
 
 <div class="header">
-  <div>
-    <img style="max-width: 150px" src="./transparent.png" /> 
-    <p><a href="https://www.imager200.io" target="_blank">www.imager200.io</a></p>
-  </div>
-<div style="width: 400px;margin: auto;">
-  <h2>API playground</h2>
+<div>
+  <img style="max-width: 150px" src="./transparent.png" />
+  <p><a href="https://www.imager200.io" target="_blank">www.imager200.io</a></p>
+</div>
+<div style="width: 600px; margin: auto;">
+  <h1>imager200 Demo Website</h1>
+  <h2>This website demonstrates how to use the imager200 API to grayscale, equalize, and blur images.</h2>
+  <br>
   <p> Source code: <a href="https://github.com/imager200/imager200-demo-java" target="_blank">https://github.com/imager200/imager200-demo-java</a></p>
 </div>
 
@@ -120,10 +117,10 @@
 
 <div class="image-form">
 <form method="post" id="upload-form" enctype="multipart/form-data">
-   <div class="form-item">
-     <label for="img"> Upload Image: </label>
-     <input id="img" type="file" name="image" accept="image/png, image/jpeg, image/gif" required/>
-   </div>
+  <div class="form-item">
+    <label for="img"> Upload Image: </label>
+    <input id="img" type="file" name="image" accept="image/png, image/jpeg, image/gif" required/>
+  </div>
   <div class="form-item">
     <label for="op"> choose operation: </label>
     <select name="operation" id="op">
@@ -133,11 +130,11 @@
     </select>
   </div>
 
-    <button type="submit" class="upload-button" id="upload"> Go for it! </button>
-    <div id="processing" class="hidden">
-      <label> processing... </label>
-      <progress  style="width: 100%" max="100"></progress>
-    </div>
+  <button type="submit" class="upload-button" id="upload"> Submit Image! </button>
+  <div id="processing" class="hidden">
+    <label> processing... </label>
+    <progress  style="width: 100%" max="100"></progress>
+  </div>
 </form>
 
 
